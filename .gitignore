@@ -1,5 +1,8 @@
 sandbox/
 
+# Observation records and derived cache. Kept out of git for now; this may change later.
+data/
+
 # Mac things
 .DS_Store
 
