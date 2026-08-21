@@ -10,3 +10,4 @@
 - Added `sequences.py`, porting the MOCSeqGen `compare_calendar_sequence.py` with structured output: block detection, greatest-overlap matching, truncation split by cause, payload mismatch checks via the verbatim `INF`/`VIS` param maps, KSAT contact overlays, and telecom cross-checks (a conflict is a command-timestamp collision within 1 s, not a telecom command inside a science window, which is the normal contact-interrupts-science case). `validate_sequence` writes nothing under `data/`; `ingest_sequence` records the final sequence and fills each observation's `scheduled` block and status.
 - Added `reports.py` and the packaged `success_metrics.json`: quality report ingest with target-plus-overlap matching.
 - Completed `rollups.py`: success counters and transit counting from PandoraTargetList ephemerides
+- Added the four notebooks (`notebooks/`): calendar ingest, sequence validation + final ingest, target progress, and find-data-to-download.
