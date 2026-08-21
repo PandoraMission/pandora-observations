@@ -7,7 +7,7 @@ import pandas as pd
 import pytest
 
 # First-party/Local
-from pandoraobservations.cache import load_observations, load_target_summary, rebuild_cache
+from pandoraobservations.cache import CACHE_VERSION, load_observations, load_target_summary, rebuild_cache
 from pandoraobservations.calendars import ingest_calendar
 from pandoraobservations.database import init_data_dir
 
@@ -86,7 +86,7 @@ def test_version_bump_rebuilds(tmp_path):
 
     rebuild_cache(root)
     assert parquet.stat().st_mtime_ns > mtime
-    assert json.loads(index_path.read_text(encoding="utf-8"))["cache_version"] == 1
+    assert json.loads(index_path.read_text(encoding="utf-8"))["cache_version"] == CACHE_VERSION
 
 
 def test_fresh_clone_keeps_committed_cache(tmp_path):

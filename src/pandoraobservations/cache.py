@@ -19,19 +19,22 @@ import pandas as pd
 from pandoraobservations import logger
 from pandoraobservations.database import ObservationDatabase, sha256_of_file
 from pandoraobservations.reports import compute_verdict, evaluate_metric, load_success_metrics
-from pandoraobservations.rollups import target_summary
+from pandoraobservations.rollups import target_summary, transit_counts
+from pandoraobservations.targets import TargetIndex
 
 # Bump when the flat table's columns or their meanings change. A cache built under a
 # different version is stale regardless of record hashes and is upgraded by rebuilding
 # from the records, if present.
-CACHE_VERSION = 1
+# v2: added executed_start_utc / executed_stop_utc / data_completeness_frac columns.
+CACHE_VERSION = 2
 
 # Flat observation columns, in display order. Payload columns follow, prefixed "payload.".
 BASE_COLUMNS = [
     "obs_id", "calendar_id", "revision", "visit_id", "sequence_id",
     "target", "target_key", "priority", "status", "superseded",
     "start_utc", "stop_utc", "duration_s", "ra_deg", "dec_deg", "roll_deg", "pri_cmd_dir",
-    "calendar_status", "verdict", "overall_score",
+    "calendar_status", "executed_start_utc", "executed_stop_utc", "data_completeness_frac",
+    "verdict", "overall_score",
 ]
 
 
@@ -90,6 +93,47 @@ def rebuild_cache(data_dir=None, force=False) -> Path:
                 "recomputing all verdicts."
             )
 
+    rows = _flatten_records(db, metrics)
+    observations = pd.DataFrame(rows, columns=None if rows else BASE_COLUMNS)
+    if len(observations):
+        for column in ("start_utc", "stop_utc", "executed_start_utc", "executed_stop_utc"):
+            observations[column] = pd.to_datetime(observations[column], format="ISO8601", utc=True).dt.tz_localize(None)
+        observations = observations.sort_values(["start_utc", "obs_id"]).reset_index(drop=True)
+
+    observations.to_parquet(observations_path, index=False)
+
+    summary = target_summary(observations)
+    if len(observations) and observations["verdict"].notna().any():
+        # Transit counting needs the PandoraTargetList ephemerides; skip quietly on machines
+        # without a checkout (e.g. CI) rather than failing the whole build.
+        try:
+            transits = transit_counts(observations, TargetIndex(db.root))
+            if len(transits):
+                summary = summary.join(transits)
+        except FileNotFoundError:
+            logger.info("PandoraTargetList unavailable; transit counts skipped.")
+    summary.to_parquet(cache_dir / "targets.parquet")
+
+    index_path.write_text(
+        json.dumps(
+            {
+                "cache_version": CACHE_VERSION,
+                "built_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "n_observations": len(observations),
+                "metrics_version": metrics["metrics_version"],
+                "calendar_record_hashes": hashes,
+            },
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    logger.info(f"Cache rebuilt: {len(observations)} observations from {len(hashes)} calendar records.")
+    return observations_path
+
+
+def _flatten_records(db: ObservationDatabase, metrics: dict) -> list[dict]:
+    """One flat row per observation across every calendar record, verdicts re-judged."""
     rows = []
     for _, record in db.iter_records("calendars"):
         calendar_status = record["calendar"]["calendar_status"]
@@ -113,11 +157,15 @@ def rebuild_cache(data_dir=None, force=False) -> Path:
                 "roll_deg": obs["requested"]["roll_deg"],
                 "pri_cmd_dir": obs["requested"]["pri_cmd_dir"],
                 "calendar_status": calendar_status,
+                "executed_start_utc": (obs.get("executed") or {}).get("start_utc"),
+                "executed_stop_utc": (obs.get("executed") or {}).get("stop_utc"),
+                "data_completeness_frac": None,
                 "verdict": None,
                 "overall_score": None,
             }
             quality = obs.get("quality")
             if quality:
+                row["data_completeness_frac"] = quality.get("metrics", {}).get("data_completeness_frac", {}).get("value")
                 # Re-judge with the currently loaded metrics file; the record keeps the
                 # verdict computed at ingest time, the cache always reflects current criteria.
                 statuses = {
@@ -129,32 +177,7 @@ def rebuild_cache(data_dir=None, force=False) -> Path:
                 row["overall_score"] = score if verdict is not None else quality.get("overall_score")
             row.update({f"payload.{key}": value for key, value in obs["payload"].items()})
             rows.append(row)
-
-    observations = pd.DataFrame(rows, columns=None if rows else BASE_COLUMNS)
-    if len(observations):
-        observations["start_utc"] = pd.to_datetime(observations["start_utc"])
-        observations["stop_utc"] = pd.to_datetime(observations["stop_utc"])
-        observations = observations.sort_values(["start_utc", "obs_id"]).reset_index(drop=True)
-
-    observations.to_parquet(observations_path, index=False)
-    target_summary(observations).to_parquet(cache_dir / "targets.parquet")
-
-    index_path.write_text(
-        json.dumps(
-            {
-                "cache_version": CACHE_VERSION,
-                "built_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "n_observations": len(observations),
-                "metrics_version": metrics["metrics_version"],
-                "calendar_record_hashes": hashes,
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    logger.info(f"Cache rebuilt: {len(observations)} observations from {len(hashes)} calendar records.")
-    return observations_path
+    return rows
 
 
 def load_observations(data_dir=None) -> pd.DataFrame:
