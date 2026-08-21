@@ -31,6 +31,8 @@ Validation and ingest are separate operations. `validate-sequence` runs the same
 | `command_count` | int | total commands in the file |
 | `use_cosmos` | bool | passed through from the file |
 | `end_buffer_s` | float | the `END_BUFFER_SEC` value used in the comparison (default 45) |
+| `start_tolerance_s` | float | seconds a block may start late before counting as truncation (default 0) |
+| `n_generated_blocks`, `n_matched_blocks` | int | observation blocks found in the sequence, and how many matched a request |
 
 ## `observations[]`
 
@@ -40,6 +42,8 @@ One entry per requested observation, including dropped ones.
 |---|---|---|
 | `obs_id` | str | the matched calendar observation |
 | `target` | str | |
+| `priority` | int | 0 lowest, 2 currently highest; drives report ordering |
+| `start_utc`, `stop_utc` | str | the requested window (verbatim from the calendar record) |
 | `scheduled_status` | str | `scheduled`, `truncated`, or `dropped` |
 | `requested_s` | float | requested window duration |
 | `coverage_s` | float | seconds of the requested window actually covered by commands |
@@ -47,6 +51,7 @@ One entry per requested observation, including dropped ones.
 | `truncation` | object | `{start_late_s, mid_gap_s, end_early_s}`; zero when fully covered |
 | `payload_mismatches` | array | `{parameter, requested, scheduled}` where the sequence's `PLD_*` value disagrees with the calendar (mapped via the `INF_PARAM_MAP`/`VIS_PARAM_MAP` tables) |
 | `contact_overlaps` | array | contacts overlapping this observation's requested window: `{ground_station, antenna, start_utc, stop_utc, overlap_s}`. Empty when no contacts file was supplied. Answers "was this science cut for a downlink, and which one?" |
+| `notes` | array of str | anomalies that fit no other field: a block with no closing `PAYLOAD_READ`, or a generated target name differing from the requested one |
 
 ## `unmatched_blocks[]`
 
@@ -63,7 +68,7 @@ Cross-checks against the optional `T<yy>W<ww>.seq.json` telecom sequence.
 | Field | Type | Notes |
 |---|---|---|
 | `command_count` | int | commands in the telecom sequence |
-| `conflicts` | array | `{science_utc, science_command, telecom_utc, telecom_command}` for every science/telecom pair that overlaps in time. Must be empty; any entry is a top-of-report finding since science and telecom commanding must never overlap. |
+| `conflicts` | array | `{science_utc, science_command, telecom_utc, telecom_command}` for every telecom command within 1 s of a science command: a collision in the merged command timeline. Must be empty. A telecom command merely falling inside a science observation window is NOT a conflict; that is the normal contact-interrupts-science case, already visible as gap truncation plus `contact_overlaps`. |
 | `uncorrelated_blocks` | array | telecom command windows that fall outside every KSAT contact window: `{start_utc, stop_utc}`. Telecom activity should correlate with the contacts, so these are flagged for review. Only populated when a contacts file was also supplied. |
 
 ## Matching and block boundaries
