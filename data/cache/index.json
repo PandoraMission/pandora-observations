@@ -1,0 +1,12 @@
+{
+  "cache_version": 2,
+  "built_utc": "2026-08-21T20:39:58Z",
+  "n_observations": 741,
+  "metrics_version": "1.0.0",
+  "calendar_record_hashes": {
+    "PAN-SCICAL-COM-20260728-VF-20260803-EX-20260810-R001.json": "78eecb008bf7caeb81ef17e6ea78506cbc0024194a419c6e3f531f43ad229aab",
+    "PAN-SCICAL-SCI-20260805-VF-20260810-EX-20260817-R003.json": "83e89891d3d647365aa1a93a4efcdcb21a9bc31251e99fdb6e72152ad9b93a1c",
+    "PAN-SCICAL-SCI-20260812-VF-20260817-EX-20260824-R003.json": "3de4b633fd349be76cde6f32674aa84ef0b4cd930efa036db172a97c6fd96eee",
+    "PAN-SCICAL-SCI-20260819-VF-20260824-EX-20260831-R002.json": "ffef4682ad3be5a1b6806ca91b04b16b927eab6fad88ebaca257be7a197c5d37"
+  }
+}

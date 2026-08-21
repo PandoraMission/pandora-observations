@@ -4,8 +4,10 @@ CMD:=poetry run
 PYMODULE:=src
 TESTS:=tests
 
-# Run all the checks which do not change files
-all: isort black flake8 pytest
+# Run the default checks. black is deliberately not in this chain: this repo allows
+# aligned assignments (flake8 E221 is ignored), which black would undo. Run `make black`
+# only if you want full black formatting.
+all: isort flake8 pytest
 
 # Run the unit tests using `pytest`
 pytest:
