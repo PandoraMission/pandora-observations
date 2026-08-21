@@ -86,6 +86,8 @@ def reset_config():
     config["SETTINGS"] = {
         "log_level": "WARNING",
         "data_dir": user_data_dir("pandoraobservations"),
+        # Path to a PandoraTargetList checkout (or its target_definition_files directory).
+        "target_list_dir": "",
     }
     with open(CONFIGPATH, "w") as configfile:
         config.write(configfile)
@@ -130,7 +132,7 @@ config = load_config()
 # Use this to check that keys you expect are in the config file.
 # If you update the config file and think users may be out of date
 # add the config parameters to this loop to check and reset the config.
-for key in ["data_dir", "log_level"]:
+for key in ["data_dir", "log_level", "target_list_dir"]:
     if key not in config["SETTINGS"]:
         logger.error(f"`{key}` missing from the `pandoraobservations` config file. Your configuration is being reset.")
         reset_config()
