@@ -1,0 +1,47 @@
+{
+  "metrics_version": "1.0.0",
+  "updated": "2026-08-21",
+  "description": "Placeholder thresholds pending DPC/SOC definitions.",
+
+  "metrics": {
+    "pointing_rms_arcsec": {
+      "units": "arcsec",
+      "direction": "lower_is_better",
+      "pass": 0.9,
+      "warn": 1.25,
+      "required": true,
+      "description": "RMS pointing error over the executed window."
+    },
+    "data_completeness_frac": {
+      "units": "fraction",
+      "direction": "higher_is_better",
+      "pass": 0.99,
+      "warn": 0.95,
+      "required": true,
+      "description": "Fraction of expected science frames received."
+    },
+    "vda_photometric_precision_ppm": {
+      "units": "ppm",
+      "direction": "lower_is_better",
+      "pass": 200.0,
+      "warn": 400.0,
+      "required": false,
+      "description": "VDA photometric precision."
+    },
+    "nirda_spectral_snr": {
+      "units": "dimensionless",
+      "direction": "higher_is_better",
+      "pass": 30.0,
+      "warn": 15.0,
+      "required": false,
+      "description": "NIRDA spectral signal to noise."
+    }
+  },
+
+  "verdict_rules": {
+    "failed_if": "any required metric is fail",
+    "partial_if": "any metric is warn, or any non-required metric is fail",
+    "success_if": "otherwise",
+    "partial_credit": "usable duration over requested duration"
+  }
+}
