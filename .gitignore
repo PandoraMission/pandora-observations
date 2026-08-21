@@ -1,7 +1,9 @@
 sandbox/
 
-# Observation records and derived cache. Kept out of git for now; this may change later.
-data/
+# Raw observation records are kept out of git for now (this may change later),
+# but the derived Parquet cache is committed.
+data/*
+!data/cache/
 
 # Mac things
 .DS_Store

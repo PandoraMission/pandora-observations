@@ -39,7 +39,7 @@ Parsed convenience fields plus the raw `<Meta>` elements from the calendar.
 | `obs_id` | str | `<calendar_id>:R<revision>:V<visit_id>:S<sequence_id>`. Full provenance chain; unique forever. |
 | `calendar_id`, `revision`, `visit_id`, `sequence_id` | str/int | the same, split out |
 | `target` | str | verbatim from the calendar, e.g. `G4476152832143994112` |
-| `target_key` | str | normalized name, joins to `targets.json` |
+| `target_key` | str | normalized name, joins to `target_index.json` |
 | `priority` | int | 0 is lowest |
 | `requested` | object | `start_utc`, `stop_utc`, `duration_s`, `ra_deg`, `dec_deg`, `roll_deg`, `pri_cmd_dir` |
 | `payload` | object | all payload parameters flattened to dot notation (`AcquireInfCamImages.SC_Integrations`) |

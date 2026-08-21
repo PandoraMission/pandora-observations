@@ -24,8 +24,8 @@ src/pandoraobservations/   the package: ingest, matching, verdicts, rollups, exp
 docs/schemas/              versioned schema definitions for every file read or written
 examples/                  sample calendar, MOC sequence, and contact list
 notebooks/                 ingest, validation, and target-progress workflows
-data/                      observation records + cache (gitignored; auto-discovered,
-                           overridable with --data-dir)
+data/                      observation records (gitignored) + committed Parquet cache
+                           (auto-discovered, overridable with --data-dir)
 ```
 
 The schema documents in [docs/schemas/](docs/schemas/) describe the current format for every record and report, including the quality report schema that the downstream analysis tool(s) write to and the `success_metrics.json` format that defines observation success.
