@@ -11,3 +11,4 @@
 - Added `reports.py` and the packaged `success_metrics.json`: quality report ingest with target-plus-overlap matching.
 - Completed `rollups.py`: success counters and transit counting from PandoraTargetList ephemerides
 - Added the four notebooks (`notebooks/`): calendar ingest, sequence validation + final ingest, target progress, and find-data-to-download.
+- Ingested the first four weekly deliveries (`initial_ingest/` WY32-WY35): 741 observations across 67 targets, 2026-08-03 to 2026-08-31.
