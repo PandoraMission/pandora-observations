@@ -1,4 +1,4 @@
-<a href="https://github.com/PandoraMission/pandora-observations/actions/workflows/tests.yml"><img src="https://github.com/PandoraMission/pandora-observations/workflows/tests/badge.svg" alt="Test status"/></a> <a href="https://github.com/PandoraMission/pandora-observations/actions/workflows/black.yml"><img src="https://github.com/PandoraMission/pandora-observations/workflows/black/badge.svg" alt="black status"/></a> <a href="https://github.com/PandoraMission/pandora-observations/actions/workflows/flake8.yml"><img src="https://github.com/PandoraMission/pandora-observations/workflows/flake8/badge.svg" alt="flake8 status"/></a>
+<a href="https://github.com/PandoraMission/pandora-observations/actions/workflows/tests.yml"><img src="https://github.com/PandoraMission/pandora-observations/workflows/tests/badge.svg" alt="Test status"/></a> <a href="https://github.com/PandoraMission/pandora-observations/actions/workflows/flake8.yml"><img src="https://github.com/PandoraMission/pandora-observations/workflows/flake8/badge.svg" alt="flake8 status"/></a>
 
 # `pandora-observations`
 
