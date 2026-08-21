@@ -1,21 +1,26 @@
 [project]
-name = "packagename"
-version = "0.1.0"
-description = ""
+name = "pandora-observations"
+version = "0.0.1"
+description = "System of record for what Pandora was asked to observe, what it observed, and whether it was scientifically successful"
 authors = [
-    {name = "Christina Hedges",email = "christina.l.hedges@nasa.gov"}
+    {name = "Joe Renaud",email = "joe.p.renaud@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+# Floor is 3.11 because shortschedule requires it.
+requires-python = ">=3.11,<4.0"
+# shortschedule is not on PyPI, so it installs from the scheduler repo's main branch.
 dependencies = [
     "rich (>=13.9.4,<14.0.0)",
     "numpy (>=1.2)",
     "pandas (>=2.2.3,<3.0.0)",
-    "appdirs (>=1.4.4,<2.0.0)"
+    "appdirs (>=1.4.4,<2.0.0)",
+    "pyarrow (>=15.0)",
+    "astropy (>=6.0)",
+    "shortschedule @ git+https://github.com/PandoraMission/pandora-short-term-scheduler.git@main",
 ]
 
 [tool.poetry]
-packages = [{include = "packagename", from = "src"}]
+packages = [{include = "pandoraobservations", from = "src"}]
 
 [tool.poetry.group.dev]
 optional = true
@@ -40,14 +45,14 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length = 79
+line-length = 119
 
 [tool.isort]
 import_heading_firstparty = 'First-party/Local'
 import_heading_future = 'Future'
 import_heading_stdlib = 'Standard library'
 import_heading_thirdparty = 'Third-party'
-line_length = 79
+line_length = 119
 multi_line_output = 3
 no_lines_before = 'LOCALFOLDER'
 profile = 'black'

@@ -1,12 +1,18 @@
-site_name: packagename
-site_url: https://pandoramission.github.io/pandora-blank/
+site_name: pandora-observations
+site_url: https://pandoramission.github.io/pandora-observations/
 docs_dir: docs
 
 nav:
   - Home: README.md
+  - Schemas:
+    - Overview: schemas/README.md
+    - Calendar record: schemas/calendar-record.md
+    - Sequence record: schemas/sequence-record.md
+    - Quality report: schemas/quality-report.md
+    - Success metrics: schemas/success-metrics.md
+    - Target index: schemas/targets.md
   - API: apidocs.md
-  - Example: notebook-example.ipynb
-  
+
 theme:
   name: "material"
   icon:
@@ -35,7 +41,7 @@ theme:
         icon: material/brightness-4
         name: Switch to system preference
 
-repo_url: https://github.com/pandoramission/pandora-blank
+repo_url: https://github.com/PandoraMission/pandora-observations
 plugins:
   - search
   - include-markdown
@@ -43,7 +49,7 @@ plugins:
       execute: false
   - mkdocstrings:
       watch:
-        - src/packagename
+        - src/pandoraobservations
       default_handler: python      
       handlers:
         python:

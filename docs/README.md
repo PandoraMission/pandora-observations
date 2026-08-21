@@ -59,7 +59,7 @@ This will build and push the site to GitHub Pages.
 This project uses `mkdocstrings` to generate API documentation directly from the source code. To document Python functions and classes:
 
 - Ensure docstrings follow a consistent format (NumPy-style is recommended).
-- Use `::: packagename.module` syntax inside Markdown to auto-generate API docs.
+- Use `::: pandoraobservations.module` syntax inside Markdown to auto-generate API docs.
 
 For more details, see the [MkDocs documentation](https://www.mkdocs.org/) and the [MkDocStrings plugin](https://mkdocstrings.github.io/).
 

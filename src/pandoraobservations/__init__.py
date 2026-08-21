@@ -10,7 +10,6 @@ from rich.console import Console  # noqa: E402
 from rich.logging import RichHandler  # noqa: E402
 
 PACKAGEDIR = os.path.abspath(os.path.dirname(__file__))
-TESTDIR = "/".join(PACKAGEDIR.split("/")[:-2]) + "/tests/"
 PANDORASTYLE = glob(f"{PACKAGEDIR}/data/pandora.mplstyle")
 
 # Standard library
@@ -25,7 +24,7 @@ from appdirs import user_config_dir, user_data_dir  # noqa: E402
 
 def get_version():
     try:
-        return version("packagename")
+        return version("pandora-observations")
     except PackageNotFoundError:
         return "unknown"
 
@@ -38,9 +37,7 @@ class PandoraLogger(logging.Logger):
     def __init__(self, name, level=logging.INFO):
         super().__init__(name, level)
         console = Console()
-        self.handler = RichHandler(
-            show_time=False, show_level=False, show_path=False, console=console
-        )
+        self.handler = RichHandler(show_time=False, show_level=False, show_path=False, console=console)
         self.handler.setFormatter(
             logging.Formatter(
                 "%(asctime)s %(levelname)s: %(message)s",
@@ -65,23 +62,21 @@ class PandoraLogger(logging.Logger):
             self.spinner_event = None
 
     def _spinner(self, message):
-        with self.handler.console.status(
-            "[bold green]" + message
-        ) as status:  # noqa
+        with self.handler.console.status("[bold green]" + message) as status:  # noqa
             while not self.spinner_event.is_set():
                 time.sleep(0.1)
 
 
-def get_logger(name="packagename"):
+def get_logger(name="pandoraobservations"):
     """Configure and return a logger with RichHandler."""
     return PandoraLogger(name)
 
 
-CONFIGDIR = user_config_dir("packagename")
+CONFIGDIR = user_config_dir("pandoraobservations")
 os.makedirs(CONFIGDIR, exist_ok=True)
 CONFIGPATH = os.path.join(CONFIGDIR, "config.ini")
 
-logger = get_logger("packagename")
+logger = get_logger("pandoraobservations")
 
 
 def reset_config():
@@ -90,7 +85,7 @@ def reset_config():
     config = configparser.ConfigParser()
     config["SETTINGS"] = {
         "log_level": "WARNING",
-        "data_dir": user_data_dir("pandorapsf"),
+        "data_dir": user_data_dir("pandoraobservations"),
     }
     with open(CONFIGPATH, "w") as configfile:
         config.write(configfile)
@@ -137,9 +132,7 @@ config = load_config()
 # add the config parameters to this loop to check and reset the config.
 for key in ["data_dir", "log_level"]:
     if key not in config["SETTINGS"]:
-        logger.error(
-            f"`{key}` missing from the `packagename` config file. Your configuration is being reset."
-        )
+        logger.error(f"`{key}` missing from the `pandoraobservations` config file. Your configuration is being reset.")
         reset_config()
         config = load_config()
 
@@ -150,11 +143,7 @@ logger.setLevel(config["SETTINGS"]["log_level"])
 def display_config() -> pd.DataFrame:
     dfs = []
     for section in config.sections():
-        df = pd.DataFrame(
-            np.asarray(
-                [(key, value) for key, value in dict(config[section]).items()]
-            )
-        )
+        df = pd.DataFrame(np.asarray([(key, value) for key, value in dict(config[section]).items()]))
         df["section"] = section
         df.columns = ["key", "value", "section"]
         df = df.set_index(["section", "key"])
