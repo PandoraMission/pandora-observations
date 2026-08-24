@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/apidocs/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/calendar-record/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/quality-report/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/sequence-record/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/success-metrics/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+    <url>
+         <loc>https://pandoramission.github.io/pandora-observations/schemas/targets/</loc>
+         <lastmod>2026-08-24</lastmod>
+    </url>
+</urlset>

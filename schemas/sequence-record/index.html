@@ -1,0 +1,1108 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pandoramission.github.io/pandora-observations/schemas/sequence-record/">
+      
+      
+        <link rel="prev" href="../calendar-record/">
+      
+      
+        <link rel="next" href="../quality-report/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Sequence record - pandora-observations</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sequence-record-schema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="pandora-observations" class="md-header__button md-logo" aria-label="pandora-observations" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            pandora-observations
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sequence record
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PandoraMission/pandora-observations" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="pandora-observations" class="md-nav__button md-logo" aria-label="pandora-observations" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg>
+
+    </a>
+    pandora-observations
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PandoraMission/pandora-observations" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schemas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schemas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calendar-record/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calendar record
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sequence record
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sequence record
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        observations[]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unmatched_blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unmatched_blocks[]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telecom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        telecom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-and-block-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching and block boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation report
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quality-report/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quality report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../success-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Success metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../targets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Target index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../apidocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#top-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top level
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sequence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        observations[]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unmatched_blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        unmatched_blocks[]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telecom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        telecom
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matching-and-block-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matching and block boundaries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation report
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="sequence-record-schema">Sequence record schema</h1>
+<p>Version: 1.</p>
+<p>One file per ingested <strong>final</strong> MOC command sequence, written to <code>data/sequences/S&lt;year_num&gt;W&lt;week_of_year_num&gt;.seq.json</code>.</p>
+<p>MOC sequence files always follow the naming pattern <code>S&lt;yy&gt;W&lt;ww&gt;.seq.json</code>, where <code>&lt;yy&gt;</code> is the last two digits of the year and <code>&lt;ww&gt;</code> is the week of year (e.g. <code>examples/S26W35.seq.json</code>). The MOC also produces telecom sequences named <code>T&lt;yy&gt;W&lt;ww&gt;.seq.json</code> in the same command format. Telecom sequences have nothing to do with science observations, but they should correlate with the KSAT contact windows, and no telecom command may ever overlap a science sequence command in time. Supplying one is optional; when supplied it feeds the cross-checks below.</p>
+<p>Validation and ingest are separate operations. <code>validate-sequence</code> runs the same comparison on draft sequences and emits this structure as a standalone report, but writes nothing under <code>data/</code>. Only the final sequence is ingested, which also fills the <code>scheduled</code> block and status of each matched observation in the calendar record.</p>
+<h2 id="top-level">Top level</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td>int</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>ingested_utc</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>object</td>
+<td><code>{path, sha256}</code> of the <code>.seq.json</code></td>
+</tr>
+<tr>
+<td><code>contacts_source</code></td>
+<td>object or null</td>
+<td><code>{path, sha256}</code> of the <code>ksat_contacts.json</code>, when supplied</td>
+</tr>
+<tr>
+<td><code>telecom_source</code></td>
+<td>object or null</td>
+<td><code>{path, sha256}</code> of the <code>T&lt;yy&gt;W&lt;ww&gt;.seq.json</code> telecom sequence, when supplied</td>
+</tr>
+<tr>
+<td><code>sequence</code></td>
+<td>object</td>
+<td>see below</td>
+</tr>
+<tr>
+<td><code>observations</code></td>
+<td>array</td>
+<td>one entry per requested observation in the compared calendar</td>
+</tr>
+<tr>
+<td><code>unmatched_blocks</code></td>
+<td>array</td>
+<td>command blocks that matched no requested window</td>
+</tr>
+<tr>
+<td><code>telecom</code></td>
+<td>object or null</td>
+<td>telecom cross-check results, present when a telecom sequence was supplied; see below</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sequence"><code>sequence</code></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sequence_file_id</code></td>
+<td>str</td>
+<td>e.g. <code>S26W35</code>, from the filename</td>
+</tr>
+<tr>
+<td><code>calendar_id</code>, <code>revision</code></td>
+<td>str, int</td>
+<td>the calendar this sequence was compared against</td>
+</tr>
+<tr>
+<td><code>command_count</code></td>
+<td>int</td>
+<td>total commands in the file</td>
+</tr>
+<tr>
+<td><code>use_cosmos</code></td>
+<td>bool</td>
+<td>passed through from the file</td>
+</tr>
+<tr>
+<td><code>end_buffer_s</code></td>
+<td>float</td>
+<td>the <code>END_BUFFER_SEC</code> value used in the comparison (default 45)</td>
+</tr>
+<tr>
+<td><code>start_tolerance_s</code></td>
+<td>float</td>
+<td>seconds a block may start late before counting as truncation (default 0)</td>
+</tr>
+<tr>
+<td><code>n_generated_blocks</code>, <code>n_matched_blocks</code></td>
+<td>int</td>
+<td>observation blocks found in the sequence, and how many matched a request</td>
+</tr>
+</tbody>
+</table>
+<h2 id="observations"><code>observations[]</code></h2>
+<p>One entry per requested observation, including dropped ones.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>obs_id</code></td>
+<td>str</td>
+<td>the matched calendar observation</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>str</td>
+<td></td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>int</td>
+<td>0 lowest, 2 currently highest; drives report ordering</td>
+</tr>
+<tr>
+<td><code>start_utc</code>, <code>stop_utc</code></td>
+<td>str</td>
+<td>the requested window (verbatim from the calendar record)</td>
+</tr>
+<tr>
+<td><code>scheduled_status</code></td>
+<td>str</td>
+<td><code>scheduled</code>, <code>truncated</code>, or <code>dropped</code></td>
+</tr>
+<tr>
+<td><code>requested_s</code></td>
+<td>float</td>
+<td>requested window duration</td>
+</tr>
+<tr>
+<td><code>coverage_s</code></td>
+<td>float</td>
+<td>seconds of the requested window actually covered by commands</td>
+</tr>
+<tr>
+<td><code>matched_blocks</code></td>
+<td>array</td>
+<td><code>{start_utc, stop_utc, science_file}</code> per generated block; one requested window may be satisfied by several blocks. <code>science_file</code> is the payload path from the closing <code>PAYLOAD_READ</code>.</td>
+</tr>
+<tr>
+<td><code>truncation</code></td>
+<td>object</td>
+<td><code>{start_late_s, mid_gap_s, end_early_s}</code>; zero when fully covered</td>
+</tr>
+<tr>
+<td><code>payload_mismatches</code></td>
+<td>array</td>
+<td><code>{parameter, requested, scheduled}</code> where the sequence's <code>PLD_*</code> value disagrees with the calendar (mapped via the <code>INF_PARAM_MAP</code>/<code>VIS_PARAM_MAP</code> tables)</td>
+</tr>
+<tr>
+<td><code>contact_overlaps</code></td>
+<td>array</td>
+<td>contacts overlapping this observation's requested window: <code>{ground_station, antenna, start_utc, stop_utc, overlap_s}</code>. Empty when no contacts file was supplied. Answers "was this science cut for a downlink, and which one?"</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>array of str</td>
+<td>anomalies that fit no other field: a block with no closing <code>PAYLOAD_READ</code>, or a generated target name differing from the requested one</td>
+</tr>
+</tbody>
+</table>
+<h2 id="unmatched_blocks"><code>unmatched_blocks[]</code></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>start_utc</code>, <code>stop_utc</code></td>
+<td>str</td>
+<td>block window found in the sequence</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>str or null</td>
+<td>target claimed by the block's commands, if any</td>
+</tr>
+<tr>
+<td><code>science_file</code></td>
+<td>str or null</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="telecom"><code>telecom</code></h2>
+<p>Cross-checks against the optional <code>T&lt;yy&gt;W&lt;ww&gt;.seq.json</code> telecom sequence.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>command_count</code></td>
+<td>int</td>
+<td>commands in the telecom sequence</td>
+</tr>
+<tr>
+<td><code>conflicts</code></td>
+<td>array</td>
+<td><code>{science_utc, science_command, telecom_utc, telecom_command}</code> for every telecom command within 1 s of a science command: a collision in the merged command timeline. Must be empty. A telecom command merely falling inside a science observation window is NOT a conflict; that is the normal contact-interrupts-science case, already visible as gap truncation plus <code>contact_overlaps</code>.</td>
+</tr>
+<tr>
+<td><code>uncorrelated_blocks</code></td>
+<td>array</td>
+<td>telecom command windows that fall outside every KSAT contact window: <code>{start_utc, stop_utc}</code>. Telecom activity should correlate with the contacts, so these are flagged for review. Only populated when a contacts file was also supplied.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="matching-and-block-boundaries">Matching and block boundaries</h2>
+<ul>
+<li>An observation block in a sequence starts at <code>PANDORA GOTO_TARGET</code> (with
+  <code>VEL_ABER 0, PRI_REF_DIR 8, SEC_REF_DIR 2</code>) and ends at the closing
+  <code>PANDORA PAYLOAD_READ ... CCSDS_AP_ID HSDR, PL_APID 0, PATH '', PL_PATH ''</code>, which fires <code>end_buffer_s</code> before the true end.</li>
+<li>Blocks are assigned to requested windows by greatest time overlap, tie broken on target name.</li>
+</ul>
+<h2 id="validation-report">Validation report</h2>
+<p>Both <code>validate-sequence</code> and <code>ingest-sequence</code> emit a human-readable summary in two forms: printed to the console, and written to <code>&lt;seq_name&gt;_validation_report.txt</code> beside the sequence file (e.g., <code>S26W35_validation_report.txt</code>). The machine-readable form is exactly the <code>observations</code> array above.</p>
+<p>The text report follows the layout of the MOCSeqGen <code>comparison_report.txt</code> it replaces:</p>
+<ol>
+<li><strong>Header</strong>: requested observation counts (all priorities, and priority &gt;= 1), generated block count, matched block count, and the comparison configuration (<code>end_buffer_s</code>, start tolerance, enabled finding types).</li>
+<li><strong>Truncation summary</strong>: dropped observations (priority &gt;= 1) with total minutes, split observations (more than one generated block), truncated count out of total, total minutes truncated, and the single worst truncation with its visit/observation/target/priority.</li>
+<li><strong>Per-observation truncation list</strong>: one line each with the start/gap/end minute split.</li>
+<li><strong>Findings, chronological</strong>: one line per finding with the requested and generated windows and the truncation breakdown.</li>
+<li><strong>Telecom and contact findings</strong> when those inputs were supplied: any science/telecom overlap (always a defect) first, then telecom windows uncorrelated with contacts.</li>
+</ol>
+<p>Ordering within the summary sections is by priority <strong>descending</strong> (priority 2 is the most important, 0 the least), so a truncation on a priority 2 transit is the first thing seen and a priority 0 filler is a footnote.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
